@@ -24,7 +24,7 @@ public class GETRequestActivity extends AppCompatActivity {
 
     private CustomAdapter adapter;
     RecyclerView recycler;
-    ProgressDialog progressDoalog;
+    ProgressDialog progressDialog;
 
     /*
     Retrofit is a type-safe HTTP client for Android and Java. It makes communicating with a web service easy, by abstracting
@@ -43,9 +43,9 @@ public class GETRequestActivity extends AppCompatActivity {
         recycler = findViewById(R.id.recyclerViewId);
 
 
-        progressDoalog = new ProgressDialog(GETRequestActivity.this);
-        progressDoalog.setMessage("Loading....");
-        progressDoalog.show();
+        progressDialog = new ProgressDialog(GETRequestActivity.this);
+        progressDialog.setMessage("Loading....");
+        progressDialog.show();
 
         /*
         enqueue() asynchronously sends the request and notifies your app with a callback when a response comes back.
@@ -62,13 +62,13 @@ public class GETRequestActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<PhotoModel>>() {
             @Override
             public void onResponse(Call<List<PhotoModel>> call, Response<List<PhotoModel>> response) {
-                progressDoalog.dismiss();
+                progressDialog.dismiss();
                 generateDataList(response.body());
             }
 
             @Override
             public void onFailure(Call<List<PhotoModel>> call, Throwable t) {
-                progressDoalog.dismiss();
+                progressDialog.dismiss();
                 Toast.makeText(GETRequestActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }
         });

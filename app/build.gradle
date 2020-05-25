@@ -61,7 +61,6 @@ dependencies {
 
 //   Logging Interceptor ( link --> https://github.com/square/okhttp/tree/master/okhttp-logging-interceptor )
     implementation "com.squareup.okhttp3:logging-interceptor:4.7.2"
-//    implementation "com.squareup.okhttp3:logging-interceptor:3.12.1"
 
 
 }
